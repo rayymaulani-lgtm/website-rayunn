@@ -1,0 +1,164 @@
+/* --- Reset & Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* --- Header / Hero Section --- */
+header {
+    background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+    height: 60vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 5px solid #ff6b00; /* Warna oranye khas Naruto */
+}
+
+.overlay {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+header h1 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 4rem;
+    letter-spacing: 5px;
+    color: #ff6b00;
+    text-shadow: 3px 3px 0px #000;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #ddd;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- Container & Section --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.section-title {
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #fff;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #ff6b00;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* --- Team Grid Layout --- */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* --- Card Styles --- */
+.card {
+    background: #262626;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 4px solid transparent;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+}
+
+/* Warna tema border per karakter saat hover */
+.card.kakashi:hover { border-color: #68829e; } /* Biru keabuan */
+.card.naruto:hover { border-color: #ff6b00; }  /* Oranye */
+.card.sasuke:hover { border-color: #2b3a67; }  /* Biru gelap */
+.card.sakura:hover { border-color: #ff94b8; }  /* Pink */
+
+.card-img img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.role {
+    display: inline-block;
+    padding: 3px 10px;
+    background: #333;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    color: #ff6b00;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Kustomisasi warna teks role per karakter */
+.kakashi .role { color: #a5b1c2; }
+.naruto .role { color: #ff6b00; }
+.sasuke .role { color: #4b7bec; }
+.sakura .role { color: #ffa8cbd; }
+
+.card-info p {
+    font-size: 0.9rem;
+    color: #b3b3b3;
+}
+
+.btn-profile {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #ff6b00;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+.btn-profile:hover {
+    background-color: #cc5400;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #111;
+    color: #666;
+    font-size: 0.9rem;
+    border-top: 1px solid #222;
+}
