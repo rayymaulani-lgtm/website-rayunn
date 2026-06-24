@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Profile - Team 7</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Khusus Halaman Profil */
+        .profile-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #262626;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #ff6b00;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        .profile-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .profile-img-box {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .profile-img-box img {
+            width: 100%;
+            border-radius: 10px;
+            border: 4px solid var(--theme-color, #ff6b00);
+            object-fit: cover;
+        }
+
+        .profile-desc-box {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .profile-desc-box h1 {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 3rem;
+            color: var(--theme-color, #ff6b00);
+            margin-bottom: 10px;
+        }
+
+        .profile-role {
+            font-size: 1.1rem;
+            color: #aaa;
+            font-style: italic;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .profile-text {
+            font-size: 1rem;
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+
+        .video-section {
+            margin-top: 40px;
+            border-top: 1px solid #444;
+            padding-top: 30px;
+        }
+
+        .video-section h2 {
+            font-family: 'Permanent Marker', cursive;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; 
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Kembali ke Team Grid</a>
+        
+        <div class="profile-container" id="profile-content">
+            <div class="profile-layout">
+                <div class="profile-img-box">
+                    <img id="char-img" src="" alt="Character Image">
+                </div>
+                
+                <div class="profile-desc-box">
+                    <h1 id="char-name">Loading...</h1>
+                    <span id="char-role" class="profile-role">Role</span>
+                    <p id="char-bio" class="profile-text">Biografi karakter akan muncul di sini...</p>
+                </div>
+            </div>
+
+            <div class="video-section">
+                <h2>Epic Moments Video</h2>
+                <div class="video-wrapper">
+                    <iframe id="char-video" src="" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const characterData = {
+            naruto: {
+                name: "Uzumaki Naruto",
+                role: "Jinchuriki - hokage ke 7",
+                bio: "Uzumaki Naruto adalah shinobi dari klan Uzumaki Konohagakure. Dia menjadi jinchūriki dari Kurama (Ekor-Sembilan) pada hari kelahirannya nasib yang membuatnya dijauhi oleh sebagian besar penduduk Konoha sepanjang masa kecilnya. Setelah bergabung dengan Tim Kakashi, Naruto bekerja keras untuk mendapatkan pengakuan desa sambil mengejar impiannya untuk menjadi Hokage.",
+                img: "naruto.jpeg", 
+                videoUrl: "vidionaruto.mp4", 
+                color: "#ff6b00"
+            },
+            sasuke: {
+                name: "Uchiha Sasuke",
+                role: "polisi konoha- The Supporting Kage",
+                bio: "Uchiha Sasuke adalah salah satu anggota terakhir klan Uchiha yang masih hidup dari Konohagakure. Setelah kakaknya, Itachi, membantai klan mereka, Sasuke mendedikasikan hidupnya untuk membalas dendam. Dia dimasukkan ke dalam Tim 7 di mana dia mengembangkan persaingan sengit sekaligus persahabatan erat dengan Uzumaki Naruto.",
+                img: "sasuke2.jpeg",
+                videoUrl: "vidiosasuke.mp4", 
+                color: "#4b7bec"
+            },
+            sakura: {
+                name: "Haruno Sakura",
+                role: "Dokter konoha",
+                bio: "Haruno Sakura adalah kunoichi dari Konohagakure. Ketika ditugaskan ke Tim 7, Sakura mendapati dirinya tidak siap menghadapi kerasnya tugas seorang ninja. Namun, setelah berlatih di bawah bimbingan Sannin Tsunade, dia mengatasi hal ini menjadi salah satu ninja medis terhebat di dunia dan salah satu kunoichi terkuat.",
+                img: "sakura2.jpeg",
+                videoUrl: "vidiosakura.mp4", 
+                color: "#ff94b8"
+            },
+            kakashi: {
+                name: "Hatake Kakashi",
+                role: "ketua tim 7 - hokage ke 6",
+                bio: "Hatake Kakashi adalah salah satu shinobi paling berbakat di Konoha; yang secara teratur dimintai nasihat dan kepemimpinan meskipun dia sendiri sangat tidak menyukai tanggung jawab. Kepada para muridnya di Tim 7, Kakashi menekankan pentingnya kerja tim, sebuah pelajaran yang ia terima dari teman masa kecilnya, Obito Uchiha.",
+                img: "kakashi2.jpeg",
+                videoUrl: "vidiokakashi.mp4", 
+                color: "#a5b1c2"
+            }
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const charKey = urlParams.get('char'); 
+
+        if (charKey && characterData[charKey]) {
+            const data = characterData[charKey];
+            
+            document.getElementById('char-name').innerText = data.name;
+            document.getElementById('char-role').innerText = data.role;
+            document.getElementById('char-bio').innerText = data.bio;
+            document.getElementById('char-img').src = data.img;
+            document.getElementById('char-img').alt = data.name;
+            document.getElementById('char-video').src = data.videoUrl;
+            
+            document.documentElement.style.setProperty('--theme-color', data.color);
+            document.title = data.name + " - Profile";
+        } else {
+            document.getElementById('profile-content').innerHTML = "<h2>Karakter tidak ditemukan!</h2><p>Silakan kembali ke halaman utama.</p>";
+        }
+    </script>
+</body>
+</html>
